@@ -1,0 +1,53 @@
+import time
+import random
+
+
+print("Rock paper Scissor Game")
+print("\n the Winning Rule Of this Game is : \n "+ "Rock vs Paper => Paper Wins \n" + " Rock vs Scissor => Rocks Wins \n" + "paper vs Scissor => Scissor\n")
+
+while True:
+  print("Enter Your CHoise \n 1) For Rock \n 2) For Paper \n 3) For Scissor \n")
+  choise = int(input("User Turn"))
+  while choise > 3 or choise <  1:
+    choise = int(input("enter valid input"))
+  if choise == 1:
+    choise_name = "Rock"
+  elif choise == 2:
+    choise_name = "paper"
+  else:
+    choise_name ="scissor"
+  print("User Choise IS :  " + choise_name)
+  time.sleep(0.5)
+  print("\n Now Its computer turn __")
+  comp_choise = random.randint(1,3)
+  while comp_choise == choise:
+    comp_choise = random.randint(1,3)
+  if comp_choise == 1:
+    comp_choise_name = "rock"
+  elif comp_choise == 2:
+    comp_choise_name = "paper"
+  else:
+    comp_choise_name =" scissor"
+  print("comuter choise is : " + comp_choise_name)
+  print(choise_name + "v/s " + comp_choise_name)
+  time.sleep(1.0)
+
+  if choise == comp_choise:
+    print("Draw => ",end=" ")
+    result = Draw
+  if((choise == 1 and comp_choise == 2)or(choise ==2 and comp_choise == 1)):
+    print("paper wins => \n")
+    result = "paper"
+  elif((choise == 1 and comp_choise==3) or (choise == 3 and comp_choise == 1)):
+    print("Rock Wins \n")
+    result = "Rock"
+  else:
+    print("Scissior Wins \n")
+    result="Scissor"
+if result ==  Draw:
+  print("<===== Its a Tie =====>")
+elif result == choise_name:
+  print("<=====Users Wins ======>")
+else:
+  print("======computer Wins ======>")
+exit()
